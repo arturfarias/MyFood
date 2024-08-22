@@ -75,8 +75,8 @@ expect "544.732.410-68" getAtributoUsuario id=${id2} atributo="cpf"
 
 # Deve aceitar apenas se tiver 14 caracteres para CPF
 criarUsuario nome="CarlosDono" email="carlos2@ufal.com.br" senha="123senha" endereco="Rua Exemplo N 321" cpf="544.732.410-68"
-expect "CPF invalido" criarUsuario nome="CarlosDono" email="carlos2@ufal.com.br" senha="123senha" endereco="Rua Exemplo N 321" cpf="7300.65200.198/0001-61"
-expect "CPF invalido" criarUsuario nome="CarlosDono" email="carlos2@ufal.com.br" senha="123senha" endereco="Rua Exemplo N 321" cpf="544.732.4"
+expectError "CPF invalido" criarUsuario nome="CarlosDono" email="carlos2@ufal.com.br" senha="123senha" endereco="Rua Exemplo N 321" cpf="7300.65200.198/0001-61"
+expectError "CPF invalido" criarUsuario nome="CarlosDono" email="carlos2@ufal.com.br" senha="123senha" endereco="Rua Exemplo N 321" cpf="544.732.4"
 
 # Validando dados ao criar o usuário.
 expectError "Nome invalido" criarUsuario nome=  email="carlos@ufal.com.br" senha="123senha" endereco="Rua Exemplo N 123"
@@ -93,7 +93,7 @@ expectError "Endereco invalido." criarUsuario nome="Carlos" email="carlos@ufal.c
 expectError "CPF invalido." criarUsuario nome="CarlosDono" email="carlos2@ufal.com.br" senha="123senha" cpf=  
 expectError "CPF invalido." criarUsuario nome="CarlosDono" email="carlos2@ufal.com.br" senha="123senha" cpf=""  
 
-expect "Endereco invalido" criarUsuario nome="CarlosDono" email="carlos2@ufal.com.br" senha="123senha" endereco="" cpf="544.732.410-68"
+expectError "Endereco invalido" criarUsuario nome="CarlosDono" email="carlos2@ufal.com.br" senha="123senha" endereco="" cpf="544.732.410-68"
 
 
 # Valida se o email esta no formato correto.
