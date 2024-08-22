@@ -67,7 +67,7 @@ id2=login email="carlos2@ufal.com.br" senha="123senha"
 
 expect "Carlos" getAtributoUsuario id=${id1} atributo="nome"
 expect "carlos@ufal.com.br" getAtributoUsuario id=${id1} atributo="email"
-expect "Rua Exemplo N 123" getAtributoUsuario id=${id1} atributo="endereço" 
+expect "Rua Exemplo N 123" getAtributoUsuario id=${id1} atributo="endereco" 
 
 expect "CarlosDono" getAtributoUsuario id=${id2} atributo="nome"
 expect "carlos2@ufal.com.br" getAtributoUsuario id=${id2} atributo="email"
@@ -79,19 +79,19 @@ expect "CPF invalido" criarUsuario nome="CarlosDono" email="carlos2@ufal.com.br"
 expect "CPF invalido" criarUsuario nome="CarlosDono" email="carlos2@ufal.com.br" senha="123senha" endereco="Rua Exemplo N 321" cpf="544.732.4"
 
 # Validando dados ao criar o usuário.
-expectError "Nome Invalido" criarUsuario nome=  email="carlos@ufal.com.br" senha="123senha" endereco="Rua Exemplo N 123"
-expectError "Nome Invalido" criarUsuario nome=""  email="carlos@ufal.com.br" senha="123senha" endereco="Rua Exemplo N 123"
+expectError "Nome invalido" criarUsuario nome=  email="carlos@ufal.com.br" senha="123senha" endereco="Rua Exemplo N 123"
+expectError "Nome invalido" criarUsuario nome=""  email="carlos@ufal.com.br" senha="123senha" endereco="Rua Exemplo N 123"
 
-expectError "Email Invalido." criarUsuario nome="Carlos" email=  senha="123senha" endereco="Rua Exemplo N 123"
+expectError "Email invalido." criarUsuario nome="Carlos" email=  senha="123senha" endereco="Rua Exemplo N 123"
 
-expectError "Senha Invalido." criarUsuario nome="Carlos" email="carlos@ufal.com.br" senha=  endereco="Rua Exemplo N 123"
-expectError "Senha Invalido." criarUsuario nome="Carlos" email="carlos@ufal.com.br" senha=""  endereco="Rua Exemplo N 123"
+expectError "Senha invalido." criarUsuario nome="Carlos" email="carlos@ufal.com.br" senha=  endereco="Rua Exemplo N 123"
+expectError "Senha invalido." criarUsuario nome="Carlos" email="carlos@ufal.com.br" senha=""  endereco="Rua Exemplo N 123"
 
-expectError "Endereço Invalido." criarUsuario nome="Carlos" email="carlos@ufal.com.br" senha="123senha" endereco=  
-expectError "Endereço Invalido." criarUsuario nome="Carlos" email="carlos@ufal.com.br" senha="123senha" endereco=""  
+expectError "Endereco invalido." criarUsuario nome="Carlos" email="carlos@ufal.com.br" senha="123senha" endereco=  
+expectError "Endereco invalido." criarUsuario nome="Carlos" email="carlos@ufal.com.br" senha="123senha" endereco=""  
 
-expectError "CPF Invalido." criarUsuario nome="CarlosDono" email="carlos2@ufal.com.br" senha="123senha" cpf=  
-expectError "CPF Invalido." criarUsuario nome="CarlosDono" email="carlos2@ufal.com.br" senha="123senha" cpf=""  
+expectError "CPF invalido." criarUsuario nome="CarlosDono" email="carlos2@ufal.com.br" senha="123senha" cpf=  
+expectError "CPF invalido." criarUsuario nome="CarlosDono" email="carlos2@ufal.com.br" senha="123senha" cpf=""  
 
 expect "Endereco invalido" criarUsuario nome="CarlosDono" email="carlos2@ufal.com.br" senha="123senha" endereco="" cpf="544.732.410-68"
 

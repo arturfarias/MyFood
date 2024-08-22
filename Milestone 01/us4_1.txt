@@ -88,8 +88,8 @@ pe2=criarPedido cliente=${id2} empresa=${e2}
 # testes de todas as combinações importantes para o comando adcionarProduto
 ###################
 
-expectError "pedido invalido" adcionarProduto numero=  produto=${p1}
-expectError "produto invalido" adcionarProduto numero=${pe1} produto=
+expectError "Pedido invalido" adcionarProduto numero=  produto=${p1}
+expectError "Produto invalido" adcionarProduto numero=${pe1} produto=
 
  adcionarProduto numero=${pe1} produto=${p1}
  adcionarProduto numero=${pe1} produto=${p2}
@@ -132,7 +132,7 @@ fecharPedido numero=${pe1}
 
 expect "preparando"  getPedidos pedido=${pe1} atributo="estado"
 
-expectError "nao e possivel adcionar produtos a um pedido fechado"  adcionarProduto numero=${pe1} produto=${p1}
+expectError "Nao e possivel adcionar produtos a um pedido fechado"  adcionarProduto numero=${pe1} produto=${p1}
 
 # Abre um novo pedido agora que o anterior está fechado.
 pe3=criarPedido cliente=${id2} empresa=${e1}
@@ -146,7 +146,7 @@ expectError "Produto invalido" removerProduto numero=${pe2} produto=
 expectError "Produto invalido" removerProduto numero=${pe2} produto=""
 
 expectError "Produto nao encontrado" removerProduto numero=${pe2} produto="Sorvete"
-expectError "nao e possivel remover produtos de um pedido fechado" removerProduto numero=${pe1} produto="Sorvete"
+expectError "Nao e possivel remover produtos de um pedido fechado" removerProduto numero=${pe1} produto="Sorvete"
 
 removerProduto numero=${pe2} produto="Pastel de queijo"
 
