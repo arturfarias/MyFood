@@ -60,7 +60,7 @@ eid2=criarEmpresa tipoEmpresa="restaurante"  dono=${id2} nome="Sushi do Carlos" 
 
 # Um dono diferente não pode cadastrar uma empresa com o mesmo nome de uma existente, o dono de um restaurante pode cadastrar uma nova empresa desde que seja em endereço diferente.
 
-expectError "Empresa com esse nome ja existe." criarEmpresa tipoEmpresa="restaurante"  dono=${id3} nome="Pastelaria do Carlos" endereco="Rua Segura N 987" tipoCozinha ="brasileira"
+expectError "Empresa com esse nome ja existe" criarEmpresa tipoEmpresa="restaurante"  dono=${id3} nome="Pastelaria do Carlos" endereco="Rua Segura N 987" tipoCozinha ="brasileira"
 
 expectError "Proibido cadastrar duas empresas com o mesmo nome e local" criarEmpresa tipoEmpresa="restaurante"  dono=${id2} nome="Pastelaria do Carlos" endereco="Rua Segura N 987" tipoCozinha ="brasileira"
 
