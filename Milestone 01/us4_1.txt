@@ -18,7 +18,7 @@
 #
 # criarPedido(int: cliente, int: empresa)
 # descrição: Cria um novo pedido de um cliente para uma empresa.
-# retorno:  Retorna o número do produto
+# retorno:  Retorna o número do pedido
 #
 # getNumeroPedido(int: cliente, int: empresa, int indice)
 # descrição: Retorna o pedido em aberto de um cliente na empresa
@@ -36,7 +36,7 @@
 # descrição:  muda o estado do pedido para fechado
 # retorno:  Sem retorno
 #
-# removerProduto(String  numero, String produto)
+# removerProduto(int  numero, String produto)
 # descrição:  Remove um produto adicionado com esse nome, mantém outros caso com o mesmo nome.
 # retorno: Sem retorno
 #
@@ -134,7 +134,6 @@ pe3=criarPedido cliente=${id2} empresa=${e1}
 # testes de todas as combinações importantes para o comando removerProduto
 ###################
 
-expectError "Numero invalido" removerProduto numero=  produto="Pastel de queijo"
 expectError "Produto invalido" removerProduto numero=${pe2} produto=
 expectError "Produto invalido" removerProduto numero=${pe2} produto=""
 
