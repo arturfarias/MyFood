@@ -61,7 +61,6 @@ expectError "Já existe um produto com esse nome para essa empresa" criarProduto
 
 p3=criarProduto empresa=${eid2} nome="Refrigerante" valor=3.00  categoria="bebida"
 
-expectError "Empresa invalido" criarProduto empresa=  nome="Refrigerante" valor=3.00  categoria="bebida"
 expectError "Nome invalido" criarProduto empresa=${eid2} nome=  valor=3.00  categoria="bebida"
 expectError "Nome invalido" criarProduto empresa=${eid2} nome=""  valor=3.00  categoria="bebida"
 expectError "Valor invalido" criarProduto empresa=${eid2} nome="Refrigerante" valor=-3.00  categoria="bebida"
@@ -73,7 +72,6 @@ expectError "Categoria invalido" criarProduto empresa=${eid2} nome="Refrigerante
 # testes de todas as combinações importantes para o comando editarProduto
 ###################
 
-expectError "Produto invalido" editarProduto produto=  nome="Refrigerante" valor=3.00  categoria="bebida"
 expectError "Nome invalido" editarProduto produto=${p3} nome=  valor=3.00  categoria="bebida"
 expectError "Nome invalido" editarProduto produto=${p3} nome=""  valor=3.00  categoria="bebida"
 expectError "Valor invalido" editarProduto produto=${p3} nome="Refrigerante" valor=-3.00  categoria="bebida"

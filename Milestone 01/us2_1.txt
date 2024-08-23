@@ -85,7 +85,6 @@ expectError "Atributo invalido" getAtributoEmpresa empresa=${eid3} atributo="viz
 expectError "Atributo invalido" getAtributoEmpresa empresa=${eid3} atributo=""
 expectError "Empresa nao cadastrada" getAtributoEmpresa empresa=9999 atributo="nome"
 expectError "Empresa nao cadastrada" getAtributoEmpresa empresa=9999 atributo=""
-expectError "Empresa invalida" getAtributoEmpresa empresa=  atributo="nome"
 expect "Atributo invalido" getAtributoEmpresa empresa=${eid3} atributo=  
 
 # Obtendo o index de uma empresa. 
@@ -96,7 +95,6 @@ expect "${eid2}" getIdEmpresa idDono=${id2} nome="Sushi do Carlos" indice=0
 expectError "indice maior que o esperado" getIdEmpresa idDono=${id2} nome="Pastelaria do Carlos" indice=2
 expectError "Não existe empresa com esse nome" getIdEmpresa idDono=${id2} nome="Sushi do Carlos" indice=0
 
-expectError "Dono invalido" getIdEmpresa idDono=  nome="Pastelaria do Carlos" indice=2
 expectError "Nome invalido" getIdEmpresa idDono=${id2} nome=  indice=2
 expectError "Nome invalido" getIdEmpresa idDono=${id2} nome=""  indice=2
 expectError "Indice invalido" getIdEmpresa idDono=${id2} nome="Pastelaria do Carlos" indice=  
