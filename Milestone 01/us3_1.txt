@@ -93,7 +93,7 @@ expect "bebida" getProduto nome="Refrigerante de laranja" empresa=${eid2} atribu
 expect "Pastelaria do Roberto" getProduto nome="Refrigerante de laranja" empresa=${eid2} atributo="empresa"
 
 expectError "Produto não encontrado" getProduto nome="Pastel" empresa=${eid2} atributo="valor"
-expectError "Atributo não  existe" getProduto nome="Refrigerante de laranja" empresa=${eid2} atributo="desconto"
+expectError "Atributo não existe" getProduto nome="Refrigerante de laranja" empresa=${eid2} atributo="desconto"
 
 ###################
 # testes para listar os produtos da empresa.
