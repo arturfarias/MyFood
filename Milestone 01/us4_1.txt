@@ -36,7 +36,7 @@
 # descrição:  muda o estado do pedido para fechado
 # retorno:  Sem retorno
 #
-# removerProduto(int  numero, String produto)
+# removerProduto(int  pedido, String produto)
 # descrição:  Remove um produto adicionado com esse nome, mantém outros caso com o mesmo nome.
 # retorno: Sem retorno
 #
@@ -134,13 +134,13 @@ pe3=criarPedido cliente=${id2} empresa=${e1}
 # testes de todas as combinações importantes para o comando removerProduto
 ###################
 
-expectError "Produto invalido" removerProduto numero=${pe2} produto=
-expectError "Produto invalido" removerProduto numero=${pe2} produto=""
+expectError "Produto invalido" removerProduto pedido=${pe2} produto=
+expectError "Produto invalido" removerProduto pedido=${pe2} produto=""
 
-expectError "Produto nao encontrado" removerProduto numero=${pe2} produto="Sorvete"
-expectError "Nao e possivel remover produtos de um pedido fechado" removerProduto numero=${pe1} produto="Sorvete"
+expectError "Produto nao encontrado" removerProduto pedido=${pe2} produto="Sorvete"
+expectError "Nao e possivel remover produtos de um pedido fechado" removerProduto pedido=${pe1} produto="Sorvete"
 
-removerProduto numero=${pe2} produto="Pastel de queijo"
+removerProduto pedido=${pe2} produto="Pastel de queijo"
 
 expect {[Pastel de queijo, Pastel de queijo]} getPedidos pedido=${pe2} atributo="produtos"
 expect "10.00"  getPedidos pedido=${pe2} atributo="valor"
