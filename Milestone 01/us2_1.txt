@@ -1,5 +1,5 @@
 # User Story 2 - Criação de Restaurantes
-# Permita que um usuário do tipo dono de restaurante crie seu restaurante no MyFood, 
+# Permita que um usuário do tipo dono de empresa crie seu restaurante, mercado ou farmacia no MyFood.
 #
 # Os dados gerais para os restaurantes são:
 # id -> Que deve ser do tipo int e único gerado pelo sistema.

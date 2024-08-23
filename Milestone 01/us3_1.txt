@@ -38,7 +38,7 @@
 # Apaga toda a base de dados.
 zerarSistema
 
-criarUsuario nome="RobertoDono" email="roberto@ufal.com.br"  senha="123senha" endereco="Rua Exemplo N 321" cpf="76.817.098/0001-36"
+criarUsuario nome="RobertoDono" email="roberto@ufal.com.br"  senha="123senha" endereco="Rua Exemplo N 321" cpf="544.732.410-68"
 
 id1=login email="roberto@ufal.com.br" senha="123senha"
 
@@ -57,7 +57,7 @@ p1=criarProduto empresa=${eid1} nome="Sorvete morango" valor=1.40  categoria="al
 
 p2=criarProduto empresa=${eid1} nome="Refrigerante" valor=3.00  categoria="bebida"
 
-expectError "Já existe um produto com esse nome para essa empresa" criarProduto empresa=${eid1} nome="Refrigerante" valor=3.00  categoria="bebida"
+expectError "Ja existe um produto com esse nome para essa empresa" criarProduto empresa=${eid1} nome="Refrigerante" valor=3.00  categoria="bebida"
 
 p3=criarProduto empresa=${eid2} nome="Refrigerante" valor=3.00  categoria="bebida"
 
