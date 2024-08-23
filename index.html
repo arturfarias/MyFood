@@ -20,6 +20,15 @@
                 são um modo de avaliar se a sua implimentação atende aos requesitos para o sistema que 
                 queremos que vocês desenvolvam. Mas não se mantenham somente a isso.
             </div>
+            <br>
+            Informações indispensaveis:
+            <ul>
+              <li><a href="#descricao">Descrição</a></li>
+              <li><a href="#userstories">User stories</a></li>
+              <li><a href="#milestones">Milestones</a></li>
+              <li><a href="#testes">Testes de aceitação</a></li>
+              <li><a href="#script">Linguagem de script</a></li>
+            </ul>
         </div>
     </div>
 
@@ -44,26 +53,18 @@
       </ul>
       
       <p>
-        Em cada um dos milestones no <a href="https://github.com/arturfarias/MyFood" style="white-space: nowrap;">repositorio</a>, haverá um conjunto de user stories 
-        que deverá ser implementado.
+        Em cada um dos milestones no <a href="https://github.com/arturfarias/MyFood">repositorio do GitHub</a>, haverá um conjunto de user stories que deverá ser implementado.
       </p>
     </p>
     
-    <h1 class="blue">Descrição do Projeto</h1>    
+    <a name="descricao"><h1 class="blue">Descrição do Projeto</h1></a>
     <h2>Descrição geral</h2>
     <p>
       O propósito do projeto é de construir um sistema de delivery. O sistema consiste de um aplicativo onde seja possível realizar 
       cadatro de empresas (restaurantes, mercados, farmacias, etc...), clientes (usuários) e entregadores. Além dos seus 
       dados associados tais como produtos e pedidos. O sistema deve ser capaz de atender a demanda de usuários famintos.
     </p>
-    <p>
-      <a href="#userstories">User stories</a>
-      <a href="#milestones">Milestones</a>
-      <a href="#testes">Testes de aceitação</a>
-      <a href="#script">Linguagem de script</a>
-      <a href="#glossario">Glossário</a>
-    </p>
-
+    
     <a name="userstories">
       <h1 class="blue">User Stories</h1>
     </a>
@@ -78,28 +79,23 @@
         <tbody>
           <tr>
             <td>1</td>
-            <td>Título 1</td>
-            <td>Descrição breve do item 1</td>
+            <td>Criação de contas</td>
+            <td>Permita a um usuário criar uma conta no MyFood, O usuário poderá ser de dois tipos, Cliente e Dono de Restaurante.</td>
           </tr>
           <tr>
             <td>2</td>
-            <td>Título 2</td>
-            <td>Descrição breve do item 2</td>
+            <td>Criação de Restaurantes</td>
+            <td>Permita que um usuário do tipo dono de empresa crie seu restaurante, mercado ou farmacia no MyFood.</td>
           </tr>
           <tr>
             <td>3</td>
-            <td>Título 3</td>
-            <td>Descrição breve do item 3</td>
+            <td>Criação de Produtos</td>
+            <td>Permita que um usuário do tipo dono de restaurante crie produtos para sua empresa. </td>
           </tr>
           <tr>
             <td>4</td>
-            <td>Título 4</td>
-            <td>Descrição breve do item 4</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>Título 5</td>
-            <td>Descrição breve do item 5</td>
+            <td>Criação de Pedidos</td>
+            <td>Permita que clientes adicionem produtos de uma empresa a seu carrinho e realizem a compra.</td>
           </tr>
         </tbody>
       </table>
@@ -108,13 +104,18 @@
       <h1 class="blue">Testes de Aceitação</h1>
     </a>
     <p> 
-      Você pode baixar os testes de aceitação <a href="">>aqui<</a>. Os quais você deve rodar para saber se o seu sistema está atendendo direitinho os 
+      Você pode baixar os testes de aceitação pelo <a href="https://github.com/arturfarias/MyFood">repositorio do GitHub</a>. Os quais você deve rodar para saber se o seu sistema está atendendo direitinho os 
       requisitos. Você usará o EasyAccept para rodar os testes. Para poder rodar os testes, vocês precisarão criar uma 
       Facade que acessa a logica do seu sistema segundo uma linguagem de script que foi criada para os testes de aceitação.
+      <p>
+        <a href="https://github.com/arturfarias/MyFood/tree/c1f0a6841ab8ad049ded50db832a1c46759ea5e9/Milestone%2001">Milestone 1</a><br>
+        <a href="https://github.com/arturfarias/MyFood/tree/c1f0a6841ab8ad049ded50db832a1c46759ea5e9/Milestone%2002">Milestone 2</a><br>
+      </p>
     </p>
+    <h2>Persistencia de dados</h2>
     <p>
-      Detalhe: num sistema de informação real, a persistência de dados usaria provavelmente um banco de dados. Não faremos isso aqui. 
-      A informação persistente pode ser feita em arquivo com XML (vejam java.beans.XMLEncoder e java.beans.XMLDecoder).
+      Num sistema de informação real, a persistência dos dados usaria provavelmente um banco de dados. Não faremos isso aqui. 
+      A informação persistente pode ser feita em arquivo XML (vejam java.beans.XMLEncoder e java.beans.XMLDecoder).
     </p>
     <a name="script">
       <h1 class="blue">Linguagem de Script</h1>
