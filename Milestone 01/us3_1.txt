@@ -99,9 +99,9 @@ expectError "Atributo não  existe" getProduto nome="Refrigerante de laranja" em
 # testes para listar os produtos da empresa.
 ###################
 
-expect {[Refrigerante de laranja]} listarProdutos empresa=${eid2}
-expect {[Sorvete morango, Refrigerante]} listarProdutos empresa=${eid1}
-expect {[]} listarProdutos empresa=${eid3}
+expect "{[Refrigerante de laranja]}" listarProdutos empresa=${eid2}
+expect "{[Sorvete morango, Refrigerante]}" listarProdutos empresa=${eid1}
+expect "{[]}" listarProdutos empresa=${eid3}
 
 expectError "Empresa nao encontrada" listarProdutos empresa=9999
 
