@@ -89,9 +89,9 @@ expect "Atributo invalido" getAtributoEmpresa empresa=${eid3} atributo=
 
 # Obtendo o index de uma empresa. 
 
-expect "${eid1}" getIdEmpresa idDono=${id2} nome="Pastelaria do Carlos" indice=0
-expect "${eid4}" getIdEmpresa idDono=${id2} nome="Pastelaria do Carlos" indice=1
-expect "${eid2}" getIdEmpresa idDono=${id2} nome="Sushi do Carlos" indice=0
+expect ${eid1} getIdEmpresa idDono=${id2} nome="Pastelaria do Carlos" indice=0
+expect ${eid4} getIdEmpresa idDono=${id2} nome="Pastelaria do Carlos" indice=1
+expect ${eid2} getIdEmpresa idDono=${id2} nome="Sushi do Carlos" indice=0
 expectError "indice maior que o esperado" getIdEmpresa idDono=${id2} nome="Pastelaria do Carlos" indice=2
 expectError "Não existe empresa com esse nome" getIdEmpresa idDono=${id2} nome="Sushi do Carlos" indice=0
 
