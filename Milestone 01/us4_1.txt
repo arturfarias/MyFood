@@ -21,7 +21,7 @@
 # retorno:  Retorna o número do pedido
 #
 # getNumeroPedido(int: cliente, int: empresa, int indice)
-# descrição: Retorna o pedido em aberto de um cliente na empresa
+# descrição: Retorna o pedido de um cliente na empresa, ordenado de forma ao mais antigo vir primeiro no indice
 # retorno:  Retorna o número do produto
 #
 # adicionarProduto(int: numero, int produto)
