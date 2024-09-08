@@ -71,7 +71,7 @@ id2=login email="carlos@ufal.com.br" senha="123senha"
 ###################
 expectError "Dono de empresa nao pode fazer um pedido" criarPedido cliente=${id1} empresa=${e1}
 
-expectError "Nao existe pedido em aberto" adicionarProduto numero=9999 produto=${e1}
+expectError "Nao existe pedido em aberto" adicionarProduto numero=9999 produto=${p1}
 
 pe1=criarPedido cliente=${id2} empresa=${e1}
 
