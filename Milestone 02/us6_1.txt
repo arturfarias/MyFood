@@ -1,4 +1,4 @@
-# User Story 5 - Criação de Farmacia
+# User Story 6 - Criação de Farmacia
 # Permita que um usuário do tipo dono de empresa crie seu restaurante, mercado ou farmacia no MyFood.
 # Todos os metodos que antes funcionava apenas para restaurante ainda devem funcionar para farmacia.
 #
