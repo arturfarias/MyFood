@@ -95,7 +95,7 @@ expect "preparando"  getPedidos pedido=${pe1} atributo="estado"
 
 # liberando pedido.
 liberarPedido numero=${pe1}
-expect "pronto"  getPedidos pedido=${pe1} atributo="estado"
+expect "pronto" getPedidos pedido=${pe1} atributo="estado"
 
 expectError "Pedido ja liberado" liberarPedido numero=${pe1}
 
@@ -165,7 +165,6 @@ adicionarProduto numero=${pe3} produto=${p5}
 
 expectError "Pedido nao esta pronto para entrega" criarEntrega pedido=${pe4} entregador=${id1} destino="Rua Segura N 987"
 
-
 epe1=obterPedido entregador=${id3}
 en1=criarEntrega pedido=${epe1} entregador=${id3} destino=
 
@@ -190,7 +189,6 @@ expect ${pe2} obterPedido entregador=${id4}
 expectError "Atributo invalido" getEntrega id=${en1} atributo=
 expectError "Atributo invalido" getEntrega id=${en1} atributo=""
 expectError "Atributo nao existe" getEntrega id=${en1} atributo="local"
-
 
 expect "Carlos"  getEntrega id=${en1} atributo="cliente"
 expect "Farmacia"  getEntrega id=${en1} atributo="empresa"

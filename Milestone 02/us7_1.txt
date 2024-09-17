@@ -1,5 +1,5 @@
 # User Story 7 - Criação de Entregador
-# Permita a um usuário criar uma conta no MyFood, O usuário poderá ser agora de tres tipos, Cliente e Dono de Restaurante e Entregador.
+# Permita a um usuário criar uma conta no MyFood, O usuário poderá ser agora de tres tipos, Cliente e Dono de Empresa e Entregador.
 #
 # Os dados gerais para os usuários são:
 # id -> Que deve ser do tipo int e único gerado pelo sistema.

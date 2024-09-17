@@ -24,17 +24,17 @@ expect "supermercado" getAtributoEmpresa empresa=${eid1} atributo="tipoMercado"
 expect "minimercado" getAtributoEmpresa empresa=${eid2} atributo="tipoMercado"
 expect "atacadista" getAtributoEmpresa empresa=${eid3} atributo="tipoMercado"
 
-expect "Lucas"  getPedidos pedido=${pe1} atributo="cliente"
+expect "Lucas" getPedidos pedido=${pe1} atributo="cliente"
 expect "Mercado do Carlos"  getPedidos pedido=${pe1} atributo="empresa"
-expect "preparando"  getPedidos pedido=${pe1} atributo="estado"
+expect "preparando" getPedidos pedido=${pe1} atributo="estado"
 expect "{[Refrigerante, Sabao, 1kg Batatas]}" getPedidos pedido=${pe1} atributo="produtos"
-expect "9.40"  getPedidos pedido=${pe1} atributo="valor"
+expect "9.40" getPedidos pedido=${pe1} atributo="valor"
 
-expect "Lucas"  getPedidos pedido=${pe2} atributo="cliente"
+expect "Lucas" getPedidos pedido=${pe2} atributo="cliente"
 expect "Conveniencias do Carlos"  getPedidos pedido=${pe2} atributo="empresa"
-expect "aberto"  getPedidos pedido=${pe2} atributo="estado"
+expect "aberto" getPedidos pedido=${pe2} atributo="estado"
 expect "{[Caneta,Caneta]}" getPedidos pedido=${pe2} atributo="produtos"
-expect "4.00"  getPedidos pedido=${pe2} atributo="valor"
+expect "4.00" getPedidos pedido=${pe2} atributo="valor"
 
 
 expect "5:25" getAtributoEmpresa empresa=${eid4} atributo="abre"

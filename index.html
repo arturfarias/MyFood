@@ -80,7 +80,7 @@
           <tr>
             <td>1</td>
             <td>Criação de contas</td>
-            <td>Permita a um usuário criar uma conta no MyFood, O usuário poderá ser de dois tipos, Cliente e Dono de Restaurante.</td>
+            <td>Permita a um usuário criar uma conta no MyFood, O usuário poderá ser de dois tipos, Cliente e Dono de Empresa.</td>
           </tr>
           <tr>
             <td>2</td>
@@ -96,6 +96,26 @@
             <td>4</td>
             <td>Criação de Pedidos</td>
             <td>Permita que clientes adicionem produtos de uma empresa a seu carrinho e realizem a compra.</td>
+          </tr>
+          <tr></tr>
+            <td>5</td>
+            <td>Criação de Mercados</td>
+            <td>Permita que um usuário do tipo dono de empresa crie seu mercado, no MyFood.</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Criação de Farmacia</td>
+            <td>Permita que um usuário do tipo dono de empresa crie sua farmacia no MyFood.</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Criação de Entregador</td>
+            <td>Permita a um usuário criar uma conta no MyFood, O usuário poderá ser agora de tres tipos, Cliente e Dono de Empresa e Entregador. </td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>Sistema de entregas</td>
+            <td> Permita a um usuário receber seus produtos, e que os entregadores possam saber os pedidos existentes e iniciar o processo dce entrega.</td>
           </tr>
         </tbody>
       </table>
@@ -127,7 +147,7 @@
        as variáveis, atributos e metodos correspondentes.
     </p>
     <p>
-      Obs: estão listados apenas os comandos usados nos testes das User Stories 1 a 4 (será atualizado a maneira que avançamos na disciplina).
+      Obs: estão listados apenas os comandos usados nos testes das User Stories 1 a 4.
       <br>
     </p>
     <pre>
@@ -151,6 +171,28 @@
       &lt;void&gt; removerProduto pedido=&lt;int&gt; produto=&lt;String&gt;
       &lt;int&gt; getNumeroPedido cliente=&lt;int&gt; empresa=&lt;int&gt; indice=&lt;int&gt;
     </pre>
+
+    <p>
+      Obs: estão listados apenas os comandos novos nos testes das User Stories 5 a 8.
+      <br>
+    </p>
+    <pre>
+      &lt;int&gt; criarEmpresa tipoEmpresa=&lt;String&gt; dono=&lt;int&gt; nome=&lt;String&gt; endereco=&lt;String&gt; tipoCozinha=&lt;String&gt; abre=&lt;String&gt; fecha=&lt;String&gt; tipoMercado=&lt;String&gt;
+      &lt;int&gt; criarEmpresa tipoEmpresa=&lt;String&gt; dono=&lt;int&gt; nome=&lt;String&gt; aberto24Horas=&lt;Boolean&gt;
+      &lt;void&gt; alterarFuncionamento mercado=&lt;String&gt; abre=&lt;String&gt; fecha=&lt;String&gt;
+      &lt;void&gt; cadastrarEntregador empresa=&lt;int&gt; entregador=&lt;int&gt;
+      &lt;int&gt; criarUsuario nome=&lt;String&gt; email=&lt;String&gt; senha=&lt;String&gt; endereco=&lt;String&gt; veiculo=&lt;String&gt; endereco=&lt;placa&gt;
+      &lt;List&gt; getEntregadores empresa=&lt;int&gt;
+      &lt;List&gt; getEmpresas entregador=&lt;int&gt;
+      &lt;void&gt; liberarPedido numero=&lt;int&gt;
+      &lt;int&gt; obterPedido entregador=&lt;int&gt;
+      &lt;int&gt; criarEntrega pedido=&lt;int&gt; entregador=&lt;int&gt; destino=&lt;String&gt;
+      &lt;String&gt; getEntrega id=&lt;int&gt; atributo=&lt;String&gt;
+      &lt;int&gt; getIdEntrega pedido=&lt;int&gt;
+      &lt;void&gt; entregar entrega=&lt;int&gt;
+    </pre>
+
+
 
     <a name="milestones">
       <h1 class="blue">Milestones</h1>
