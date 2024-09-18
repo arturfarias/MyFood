@@ -243,9 +243,9 @@ expectError "Horarios invalidos" alterarFuncionamento mercado=${eid4} abre="20:5
 # Apernas mercados tem o horario de antendimento.
 eid5=criarEmpresa tipoEmpresa="restaurante" dono=${id2} nome="Pastelaria do Carlos" endereco="Rua Segura N 987" tipoCozinha="brasileira"
 
-expectError "Nao e um mercado valido" alterarFuncionamento mercado=${eid5} abre="5:25" fecha="22:00"
+expectError "Nao e um mercado valido" alterarFuncionamento mercado=${eid5} abre="05:25" fecha="22:00"
 
-expect "5:25" getAtributoEmpresa empresa=${eid4} atributo="abre"
+expect "05:25" getAtributoEmpresa empresa=${eid4} atributo="abre"
 expect "22:00" getAtributoEmpresa empresa=${eid4} atributo="fecha"
 
 encerrarSistema

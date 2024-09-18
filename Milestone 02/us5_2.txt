@@ -33,9 +33,9 @@ expect "9.40" getPedidos pedido=${pe1} atributo="valor"
 expect "Lucas" getPedidos pedido=${pe2} atributo="cliente"
 expect "Conveniencias do Carlos"  getPedidos pedido=${pe2} atributo="empresa"
 expect "aberto" getPedidos pedido=${pe2} atributo="estado"
-expect "{[Caneta,Caneta]}" getPedidos pedido=${pe2} atributo="produtos"
+expect "{[Caneta, Caneta]}" getPedidos pedido=${pe2} atributo="produtos"
 expect "4.00" getPedidos pedido=${pe2} atributo="valor"
 
 
-expect "5:25" getAtributoEmpresa empresa=${eid4} atributo="abre"
+expect "05:25" getAtributoEmpresa empresa=${eid4} atributo="abre"
 expect "22:00" getAtributoEmpresa empresa=${eid4} atributo="fecha"
