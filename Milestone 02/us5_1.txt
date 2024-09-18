@@ -73,7 +73,7 @@ expectError "Empresa com esse nome ja existe" criarEmpresa tipoEmpresa="mercado"
 
 expectError "Proibido cadastrar duas empresas com o mesmo nome e local" criarEmpresa tipoEmpresa="mercado" dono=${id2} nome="Mercado do Carlos" endereco="Rua Segura N 123" abre="07:30", fecha="21:00" tipoMercado="supermercado"
 
-expectError "Formato de hora invalido" criarEmpresa tipoEmpresa="mercado" dono=${id2} nome="Mercado do Carlos" endereco="Rua Otima N 852"abre="0730", fecha="21:00" tipoMercado="atacadista"
+expectError "Formato de hora invalido" criarEmpresa tipoEmpresa="mercado" dono=${id2} nome="Mercado do Carlos" endereco="Rua Otima N 852" abre="0730", fecha="21:00" tipoMercado="atacadista"
 expectError "Formato de hora invalido" criarEmpresa tipoEmpresa="mercado" dono=${id2} nome="Mercado do Carlos" endereco="Rua Otima N 852" abre="12:54" fecha="2322" tipoMercado="atacadista"
 expectError "Formato de hora invalido" criarEmpresa tipoEmpresa="mercado" dono=${id2} nome="Mercado do Carlos" endereco="Rua Otima N 852" abre="120:54" fecha="23:22" tipoMercado="atacadista"
 expectError "Formato de hora invalido" criarEmpresa tipoEmpresa="mercado" dono=${id2} nome="Mercado do Carlos" endereco="Rua Otima N 852" abre="12:540" fecha="23:22" tipoMercado="atacadista"
@@ -102,7 +102,7 @@ expectError "Usuario nao pode criar uma empresa" criarEmpresa tipoEmpresa="merca
 
 # Obtendo donos
 expectError "Usuario nao pode criar uma empresa" getEmpresasDoUsuario idDono=${id1}
-expect "{[[Mercado do Carlos, Rua Segura N 123], [Conveniencias do Carlos,Rua Segura N 123], [Mercado do Carlos, Rua Otima N 852]]}" getEmpresasDoUsuario idDono=${id2}
+expect "{[[Mercado do Carlos, Rua Segura N 123], [Conveniencias do Carlos, Rua Segura N 123], [Mercado do Carlos, Rua Otima N 852]]}" getEmpresasDoUsuario idDono=${id2}
 expect "{[]}" getEmpresasDoUsuario idDono=${id3}
 
 # Obtendo os dados dos mercados. 
@@ -137,7 +137,7 @@ expectError "Indice invalido" getIdEmpresa idDono=${id2} nome="Pastelaria do Car
 
 # Criando produtos 
 p1=criarProduto empresa=${eid1} nome="Refrigerante" valor=2.40  categoria="bebida"
-p2=criarProduto empresa=${eid1} nome="Sabão" valor=1.25  categoria="limpeza"
+p2=criarProduto empresa=${eid1} nome="Sabao" valor=1.25  categoria="limpeza"
 p3=criarProduto empresa=${eid1} nome="1kg Batatas" valor=5.75  categoria="verdura"
 p4=criarProduto empresa=${eid2} nome="Caneta" valor=2.00  categoria="escolar"
 
@@ -149,7 +149,7 @@ expectError "Dono de empresa nao pode fazer um pedido" criarPedido cliente=${id2
 expectError "Nao existe pedido em aberto" adicionarProduto numero=9999 produto=${p1}
 
 pe1=criarPedido cliente=${id1} empresa=${eid1}
-expectError "Nao e permitido ter dois pedidos em aberto para a mesma empresa" criarPedido cliente=${id2} empresa=${eid1}
+expectError "Nao e permitido ter dois pedidos em aberto para a mesma empresa" criarPedido cliente=${id1} empresa=${eid1}
 
 pe2=criarPedido cliente=${id1} empresa=${eid2}
 
@@ -185,7 +185,7 @@ expect "9.40" getPedidos pedido=${pe1} atributo="valor"
 expect "Lucas" getPedidos pedido=${pe2} atributo="cliente"
 expect "Conveniencias do Carlos" getPedidos pedido=${pe2} atributo="empresa"
 expect "aberto" getPedidos pedido=${pe2} atributo="estado"
-expect "{[Caneta,Caneta, Caneta]}" getPedidos pedido=${pe2} atributo="produtos"
+expect "{[Caneta, Caneta, Caneta]}" getPedidos pedido=${pe2} atributo="produtos"
 expect "6.00" getPedidos pedido=${pe2} atributo="valor"
 
 ###################
@@ -217,32 +217,28 @@ removerProduto pedido=${pe2} produto="Caneta"
 expect "{[Caneta, Caneta]}" getPedidos pedido=${pe2} atributo="produtos"
 expect "4.00"  getPedidos pedido=${pe2} atributo="valor"
 
-###################
-# testes de todas as combinações importantes para o comando removerProduto
-###################
-
-expect ${pe1} getNumeroPedido cliente=${id2} empresa=${eid1} indice=0
-expect ${pe2} getNumeroPedido cliente=${id2} empresa=${eid2} indice=0
-expect ${pe3} getNumeroPedido cliente=${id2} empresa=${eid1} indice=1
+expect ${pe1} getNumeroPedido cliente=${id1} empresa=${eid1} indice=0
+expect ${pe2} getNumeroPedido cliente=${id1} empresa=${eid2} indice=0
+expect ${pe3} getNumeroPedido cliente=${id1} empresa=${eid1} indice=1
 
 ###################
 # testes de todas as combinações e erros ao tentar mudar o horario de funcionamento.
 ###################
 
-expectError "Formato de hora invalido" alterarFuncionamento mercado=${pe4} abre="1254" fecha="23:22"
-expectError "Formato de hora invalido" alterarFuncionamento mercado=${pe4} abre="12:54" fecha="2322"
-expectError "Formato de hora invalido" alterarFuncionamento mercado=${pe4} abre="120:54" fecha="23:22"
-expectError "Formato de hora invalido" alterarFuncionamento mercado=${pe4} abre="12:540" fecha="23:22"
-expectError "Formato de hora invalido" alterarFuncionamento mercado=${pe4} abre="12:54" fecha="003:22"
-expectError "Formato de hora invalido" alterarFuncionamento mercado=${pe4} abre="12:54" fecha="03:220"
-expectError "Formato de hora invalido" alterarFuncionamento mercado=${pe4} abre="2:54" fecha="03:22"
-expectError "Formato de hora invalido" alterarFuncionamento mercado=${pe4} abre="02:54" fecha="3:22"
-expectError "Formato de hora invalido" alterarFuncionamento mercado=${pe4} abre="02:54" fecha="03:2"
-expectError "Formato de hora invalido" alterarFuncionamento mercado=${pe4} abre="02:5" fecha="03:22"
-expectError "Horarios invalidos" alterarFuncionamento mercado=${pe4} abre="20:52" fecha="03:22"
-expectError "Horarios invalidos" alterarFuncionamento mercado=${pe4} abre="20:52" fecha="25:22"
-expectError "Horarios invalidos" alterarFuncionamento mercado=${pe4} abre= fecha="23:22"
-expectError "Horarios invalidos" alterarFuncionamento mercado=${pe4} abre="20:52" fecha=
+expectError "Formato de hora invalido" alterarFuncionamento mercado=${eid4} abre="1254" fecha="23:22"
+expectError "Formato de hora invalido" alterarFuncionamento mercado=${eid4} abre="12:54" fecha="2322"
+expectError "Formato de hora invalido" alterarFuncionamento mercado=${eid4} abre="120:54" fecha="23:22"
+expectError "Formato de hora invalido" alterarFuncionamento mercado=${eid4} abre="12:540" fecha="23:22"
+expectError "Formato de hora invalido" alterarFuncionamento mercado=${eid4} abre="12:54" fecha="003:22"
+expectError "Formato de hora invalido" alterarFuncionamento mercado=${eid4} abre="12:54" fecha="03:220"
+expectError "Formato de hora invalido" alterarFuncionamento mercado=${eid4} abre="2:54" fecha="03:22"
+expectError "Formato de hora invalido" alterarFuncionamento mercado=${eid4} abre="02:54" fecha="3:22"
+expectError "Formato de hora invalido" alterarFuncionamento mercado=${eid4} abre="02:54" fecha="03:2"
+expectError "Formato de hora invalido" alterarFuncionamento mercado=${eid4} abre="02:5" fecha="03:22"
+expectError "Horarios invalidos" alterarFuncionamento mercado=${eid4} abre="20:52" fecha="03:22"
+expectError "Horarios invalidos" alterarFuncionamento mercado=${eid4} abre="20:52" fecha="25:22"
+expectError "Horarios invalidos" alterarFuncionamento mercado=${eid4} abre= fecha="23:22"
+expectError "Horarios invalidos" alterarFuncionamento mercado=${eid4} abre="20:52" fecha=
 
 # Apernas mercados tem o horario de antendimento.
 eid5=criarEmpresa tipoEmpresa="restaurante" dono=${id2} nome="Pastelaria do Carlos" endereco="Rua Segura N 987" tipoCozinha="brasileira"
