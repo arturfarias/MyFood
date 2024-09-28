@@ -7,6 +7,7 @@
 # nome -> Informado na criação do tipo String, não pode existir vários mercados com o mesmo nome com donos diferentes.
 # endereco-> Informado na criação do tipo String, pode existir vários restaurantes com o mesmo endereço.
 # aberto24Horas -> Boolean que aemazena se a farmacia e aberta 24h por dia. caso True, abre e fecha pode ser null.
+# numeroFuncionarios -> Numero inteiro representando a quantidade de funcionarios.
 #
 ###################
 # Os métodos que são utilizados nos testes podem ser vistos a seguir:
@@ -15,7 +16,7 @@
 # descrição: Apaga todos os dados no banco de dados do sistema.
 # retorno: Sem retorno
 #
-# criarEmpresa(String: tipoEmpresa, int dono, String: nome, Boolean: aberto24Horas)
+# criarEmpresa(String: tipoEmpresa, int dono, String: nome, Boolean: aberto24Horas, int numeroFuncionarios)
 # descrição: Cria uma nova empresa, do tipo fornecido, Restaurante, Mercado e Farmacia agora são criados.
 # retorno:   Retorna o id da empresa
 #
@@ -57,24 +58,24 @@ id3=login email="roberto@ufal.com.br" senha="123senha"
 # testes de todas as outras combinações importantes para o comando criarEmpresa para mercado
 ###################
 
-eid1=criarEmpresa tipoEmpresa="farmacia" dono=${id2} nome="Farmacia 24 horas do Carlos" endereco="Rua Segura N 123" aberto24Horas=true
+eid1=criarEmpresa tipoEmpresa="farmacia" dono=${id2} nome="Farmacia 24 horas do Carlos" endereco="Rua Segura N 123" aberto24Horas=true numeroFuncionarios=2
 
-eid2=criarEmpresa tipoEmpresa="farmacia" dono=${id2} nome="Farmacia do Carlos" endereco="Rua Segura N 123" aberto24Horas=false
+eid2=criarEmpresa tipoEmpresa="farmacia" dono=${id2} nome="Farmacia do Carlos" endereco="Rua Segura N 123" aberto24Horas=false numeroFuncionarios=2
 
 # Um dono diferente não pode cadastrar uma empresa com o mesmo nome de uma existente, o dono de um restaurante pode cadastrar uma nova empresa desde que seja em endereço diferente.
 
-expectError "Empresa com esse nome ja existe" criarEmpresa tipoEmpresa="farmacia" dono=${id3} nome="Farmacia do Carlos" endereco="Rua Segura N 987" aberto24Horas=false
+expectError "Empresa com esse nome ja existe" criarEmpresa tipoEmpresa="farmacia" dono=${id3} nome="Farmacia do Carlos" endereco="Rua Segura N 987" aberto24Horas=false numeroFuncionarios=2
 
-expectError "Proibido cadastrar duas empresas com o mesmo nome e local" criarEmpresa tipoEmpresa="farmacia"  dono=${id2} nome="Farmacia do Carlos" endereco="Rua Segura N 123"  aberto24Horas=false
+expectError "Proibido cadastrar duas empresas com o mesmo nome e local" criarEmpresa tipoEmpresa="farmacia"  dono=${id2} nome="Farmacia do Carlos" endereco="Rua Segura N 123"  aberto24Horas=false numeroFuncionarios=2
 
-eid3=criarEmpresa tipoEmpresa="farmacia"  dono=${id2} nome="Farmacia 24 horas do Carlos" endereco="Rua Otima N 852" aberto24Horas=true
+eid3=criarEmpresa tipoEmpresa="farmacia"  dono=${id2} nome="Farmacia 24 horas do Carlos" endereco="Rua Otima N 852" aberto24Horas=true numeroFuncionarios=2
 
 expectError "Tipo de empresa invalido" criarEmpresa tipoEmpresa=  dono=${id2} nome="Mercado do Carlos" endereco="Rua Otima N 852" aberto24Horas=false
-expectError "Nome invalido" criarEmpresa tipoEmpresa="farmacia"  dono=${id2} nome= endereco="Rua Otima N 852" aberto24Horas=false
-expectError "Endereco invalido" criarEmpresa tipoEmpresa="farmacia"  dono=${id2} nome="Mercado do Carlos" endereco= aberto24Horas=false
+expectError "Nome invalido" criarEmpresa tipoEmpresa="farmacia"  dono=${id2} nome= endereco="Rua Otima N 852" aberto24Horas=false numeroFuncionarios=2
+expectError "Endereco invalido" criarEmpresa tipoEmpresa="farmacia"  dono=${id2} nome="Mercado do Carlos" endereco= aberto24Horas=false numeroFuncionarios=2
 
 # Apenas usuários do tipo dono de mercado podem criar uma empresa.
-expectError "Usuario nao pode criar uma empresa" criarEmpresa tipoEmpresa="farmacia"  dono=${id1} nome="Mercado do  Lucas" endereco="Rua Amigavel N 22" aberto24Horas=false
+expectError "Usuario nao pode criar uma empresa" criarEmpresa tipoEmpresa="farmacia"  dono=${id1} nome="Mercado do  Lucas" endereco="Rua Amigavel N 22" aberto24Horas=false numeroFuncionarios=2
 
 # Obtendo donos
 expectError "Usuario nao pode criar uma empresa" getEmpresasDoUsuario idDono=${id1}
@@ -82,13 +83,14 @@ expect "{[[Farmacia 24 horas do Carlos, Rua Segura N 123], [Farmacia do Carlos,R
 expect "{[]}" getEmpresasDoUsuario idDono=${id3}
 
 # Obtendo os dados das farmacias. 
-eid4=criarEmpresa tipoEmpresa="farmacia" dono=${id3} nome="Farmacia do Roberto" endereco="Rua Segura N 123" aberto24Horas=false
+eid4=criarEmpresa tipoEmpresa="farmacia" dono=${id3} nome="Farmacia do Roberto" endereco="Rua Segura N 123" aberto24Horas=false numeroFuncionarios=2
 
 expect "Farmacia do Roberto" getAtributoEmpresa empresa=${eid4} atributo="nome"
 expect "Rua Segura N 123" getAtributoEmpresa empresa=${eid4} atributo="endereco"
 expect false getAtributoEmpresa empresa=${eid4} atributo="aberto24Horas"
 expect true getAtributoEmpresa empresa=${eid1} atributo="aberto24Horas"
 expect "RobertoDono" getAtributoEmpresa empresa=${eid4} atributo="dono"
+expect "2" getAtributoEmpresa empresa=${eid4} atributo="numeroFuncionarios"
 expectError "Atributo invalido" getAtributoEmpresa empresa=${eid4} atributo="vizinhos"
 expectError "Atributo invalido" getAtributoEmpresa empresa=${eid4} atributo=""
 expectError "Empresa nao cadastrada" getAtributoEmpresa empresa=9999 atributo="nome"

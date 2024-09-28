@@ -19,6 +19,7 @@ expect "Rua Segura N 123" getAtributoEmpresa empresa=${eid4} atributo="endereco"
 expect false getAtributoEmpresa empresa=${eid4} atributo="aberto24Horas"
 expect true getAtributoEmpresa empresa=${eid1} atributo="aberto24Horas"
 expect "RobertoDono" getAtributoEmpresa empresa=${eid4} atributo="dono"
+expect "2" getAtributoEmpresa empresa=${eid4} atributo="numeroFuncionarios"
 
 expect "Lucas"  getPedidos pedido=${pe1} atributo="cliente"
 expect "Farmacia 24 horas do Carlos"  getPedidos pedido=${pe1} atributo="empresa"
