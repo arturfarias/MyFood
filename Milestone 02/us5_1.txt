@@ -92,7 +92,7 @@ eid3=criarEmpresa tipoEmpresa="mercado" dono=${id2} nome="Mercado do Carlos" end
 
 expectError "Tipo de empresa invalido" criarEmpresa tipoEmpresa= dono=${id2} nome="Mercado do Carlos" endereco="Rua Otima N 852" abre="20:52" fecha="21:00" tipoMercado="atacadista"
 expectError "Nome invalido" criarEmpresa tipoEmpresa="mercado" dono=${id2} nome= endereco="Rua Otima N 852" abre="20:52" fecha="21:00" tipoMercado="atacadista"
-expectError "Endereco invalido" criarEmpresa tipoEmpresa="mercado" dono=${id2} nome="Mercado do Carlos" endereco= abre="20:52" fecha="21:00" tipoMercado="atacadista"
+expectError "Endereco da empresa invalido" criarEmpresa tipoEmpresa="mercado" dono=${id2} nome="Mercado do Carlos" endereco= abre="20:52" fecha="21:00" tipoMercado="atacadista"
 expectError "Horario invalido" criarEmpresa tipoEmpresa="mercado" dono=${id2} nome="Mercado do Carlos" endereco="Rua Otima N 852" abre= fecha="23:22" tipoMercado="atacadista"
 expectError "Horario invalido" criarEmpresa tipoEmpresa="mercado" dono=${id2} nome="Mercado do Carlos" endereco="Rua Otima N 852" abre="20:52" fecha= tipoMercado="atacadista"
 expectError "Tipo de mercado invalido" criarEmpresa tipoEmpresa="mercado" dono=${id2} nome="Mercado do Carlos" endereco="Rua Otima N 852" abre="20:52" fecha="23:22" tipoMercado=
