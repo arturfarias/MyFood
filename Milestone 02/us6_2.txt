@@ -12,7 +12,7 @@ eid4=getIdEmpresa idDono=${id3} nome="Farmacia do Roberto" indice=0
 pe1=getNumeroPedido cliente=${id1} empresa=${eid1} indice=0
 pe2=getNumeroPedido cliente=${id1} empresa=${eid2} indice=0
 
-expect "{[[Farmacia 24 horas do Carlos, Rua Segura N 123], [Farmacia do Carlos, Rua Segura N 123], [Nova farmacia do Carlos, Rua Otima N 852]]}" getEmpresasDoUsuario idDono=${id2}
+expect "{[[Farmacia 24 horas do Carlos, Rua Segura N 123], [Farmacia do Carlos, Rua Segura N 123], [Farmacia 24 horas do Carlos, Rua Otima N 852]]}" getEmpresasDoUsuario idDono=${id2}
 expect "{[[Farmacia do Roberto, Rua Segura N 123]]}" getEmpresasDoUsuario idDono=${id3}
 
 expect "Farmacia do Roberto" getAtributoEmpresa empresa=${eid4} atributo="nome"
