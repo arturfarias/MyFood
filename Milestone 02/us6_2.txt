@@ -17,14 +17,14 @@ expect "{[[Farmacia do Roberto, Rua Segura N 123]]}" getEmpresasDoUsuario idDono
 
 expect "Farmacia do Roberto" getAtributoEmpresa empresa=${eid4} atributo="nome"
 expect "Rua Segura N 123" getAtributoEmpresa empresa=${eid4} atributo="endereco"
-expect false getAtributoEmpresa empresa=${eid4} atributo="aberto24Horas"
-expect true getAtributoEmpresa empresa=${eid1} atributo="aberto24Horas"
+expect "false" getAtributoEmpresa empresa=${eid4} atributo="aberto24Horas"
+expect "true" getAtributoEmpresa empresa=${eid1} atributo="aberto24Horas"
 expect "RobertoDono" getAtributoEmpresa empresa=${eid4} atributo="dono"
 expect "2" getAtributoEmpresa empresa=${eid4} atributo="numeroFuncionarios"
 
 expect "Lucas" getPedidos pedido=${pe1} atributo="cliente"
 expect "Farmacia 24 horas do Carlos"  getPedidos pedido=${pe1} atributo="empresa"
-expect "preperando" getPedidos pedido=${pe1} atributo="estado"
+expect "preparando" getPedidos pedido=${pe1} atributo="estado"
 expect "{[Paracetamol, Agua Oxigenada, Band-Aid]}" getPedidos pedido=${pe1} atributo="produtos"
 expect "8.90"  getPedidos pedido=${pe1} atributo="valor"
 
