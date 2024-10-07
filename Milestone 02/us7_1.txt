@@ -1,4 +1,4 @@
-# User Story 7 - Criação de Entregador
+se# User Story 7 - Criação de Entregador
 # Permita a um usuário criar uma conta no MyFood, O usuário poderá ser agora de tres tipos, Cliente e Dono de Empresa e Entregador.
 #
 # Os dados gerais para os usuários são:
@@ -78,7 +78,7 @@ expectError "Conta com esse email ja existe" criarUsuario nome="Rodrigo2" email=
 # É possível existir mais usuários com o mesmo nome e endereço, desde que o email seja diferente.
 criarUsuario nome="Rodrigo" email="rodrigo2@ufal.com.br" senha="123senha" endereco="Rua Exemplo N 321"
 
-id3=login email="carlos2@ufal.com.br" senha="123senha"
+id3=login email="rodrigo2@ufal.com.br" senha="123senha"
 
 expect "Rodrigo" getAtributoUsuario id=${id1} atributo="nome"
 expect "rodrigo@ufal.com.br" getAtributoUsuario id=${id1} atributo="email"
