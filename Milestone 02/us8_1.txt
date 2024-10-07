@@ -192,14 +192,14 @@ expectError "Atributo nao existe" getEntrega id=${en1} atributo="local"
 
 expect "Carlos"  getEntrega id=${en1} atributo="cliente"
 expect "Farmacia"  getEntrega id=${en1} atributo="empresa"
-expect pe3  getEntrega id=${en1} atributo="pedido"
+expect ${pe3}  getEntrega id=${en1} atributo="pedido"
 expect "Rodrigo"  getEntrega id=${en1} atributo="entregador"
 expect "Rua Exemplo N 123"  getEntrega id=${en1} atributo="destino"
 expect "{[Paracetamol, Agua Oxigenada]}"  getEntrega id=${en1} atributo="produtos"
 
 expect "Carlos"  getEntrega id=${en2} atributo="cliente"
 expect "Pastelaria"  getEntrega id=${en2} atributo="empresa"
-expect pe1  getEntrega id=${en2} atributo="pedido"
+expect ${pe1}  getEntrega id=${en2} atributo="pedido"
 expect "Joana"  getEntrega id=${en2} atributo="entregador"
 expect "Rua Exemplo N 85"  getEntrega id=${en2} atributo="destino"
 expect "{[Pastel, Refrigerante]}"  getEntrega id=${en2} atributo="produtos"
@@ -217,7 +217,7 @@ expectError "Nao existe entrega com esse id" getIdEntrega pedido=${pe2}
 # testes de todas as combinações importantes para o comando entregar.
 ###################
 
-expectError "Nao existe nada para ser entrgue com esse id" entregar entrega=9999
+expectError "Nao existe nada para ser entregue com esse id" entregar entrega=9999
 
 entregar entrega=${en1}
 expect "entregue"  getPedidos pedido=${pe3} atributo="estado"
