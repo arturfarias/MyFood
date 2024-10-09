@@ -130,7 +130,6 @@ adicionarProduto numero=${pe2} produto=${p4}
 fecharPedido numero=${pe2}
 
 cadastrarEntregador empresa=${eid1} entregador=${id3}
-cadastrarEntregador empresa=${eid1} entregador=${id4}
 
 expect ${pe1} obterPedido entregador=${id3}
 expect ${pe1} obterPedido entregador=${id4}
@@ -148,8 +147,6 @@ liberarPedido numero=${pe2}
 
 expect ${pe1} obterPedido entregador=${id3}
 expect ${pe1} obterPedido entregador=${id4}
-
-cadastrarEntregador empresa=${eid1} entregador=${id3}
 
 expect ${pe3} obterPedido entregador=${id3}
 expect ${pe1} obterPedido entregador=${id4}
