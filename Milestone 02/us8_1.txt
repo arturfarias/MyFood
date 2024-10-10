@@ -101,8 +101,8 @@ expectError "Pedido ja liberado" liberarPedido numero=${pe1}
 
 pe=criarPedido cliente=${id1} empresa=${eid2}
 
-adicionarProduto numero=${pe} produto=${p1}
-adicionarProduto numero=${pe} produto=${p2}
+adicionarProduto numero=${pe} produto=${p3}
+adicionarProduto numero=${pe} produto=${p4}
 
 # Caso o estado não seja pronto.
 expectError "Nao e possivel liberar um produto que nao esta sendo preparado" liberarPedido numero=${pe}
