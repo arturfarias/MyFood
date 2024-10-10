@@ -128,9 +128,7 @@ adicionarProduto numero=${pe2} produto=${p3}
 adicionarProduto numero=${pe2} produto=${p4}
 
 fecharPedido numero=${pe2}
-
-cadastrarEntregador empresa=${eid1} entregador=${id3}
-cadastrarEntregador empresa=${eid1} entregador=${id4}
+liberarPedido numero=${pe2}
 
 expect ${pe1} obterPedido entregador=${id3}
 expect ${pe1} obterPedido entregador=${id4}
@@ -140,16 +138,16 @@ pe3=criarPedido cliente=${id1} empresa=${eid3}
 adicionarProduto numero=${pe3} produto=${p5}
 adicionarProduto numero=${pe3} produto=${p6}
 fecharPedido numero=${pe3}
-liberarPedido numero=${pe3}
 
 expect ${pe1} obterPedido entregador=${id3}
 expect ${pe1} obterPedido entregador=${id4}
+
 liberarPedido numero=${pe2}
 
 expect ${pe1} obterPedido entregador=${id3}
 expect ${pe1} obterPedido entregador=${id4}
 
-cadastrarEntregador empresa=${eid1} entregador=${id3}
+cadastrarEntregador empresa=${eid3} entregador=${id3}
 
 expect ${pe3} obterPedido entregador=${id3}
 expect ${pe1} obterPedido entregador=${id4}
@@ -180,8 +178,8 @@ expectError "Entregador ainda em entrega" criarEntrega pedido=${epe2} entregador
 en2=criarEntrega pedido=${epe2} entregador=${id4} destino="Rua Exemplo N 85"
 expect "entregando"  getPedidos pedido=${pe1} atributo="estado"
 
-expect ${pe2} obterPedido entregador=${id3}
-expect ${pe2} obterPedido entregador=${id4}
+expect ${pe5} obterPedido entregador=${id3}
+expect ${pe5} obterPedido entregador=${id4}
 
 ###################
 # testes de todas as combinações importantes para o comando getEntrega.
