@@ -75,7 +75,7 @@ p2=criarProduto empresa=${eid1} nome="Refrigerante" valor=3.00  categoria="bebid
 p3=criarProduto empresa=${eid2} nome="Refrigerante" valor=2.40  categoria="bebida"
 p4=criarProduto empresa=${eid2} nome="Sabão" valor=1.25  categoria="limpeza"
 
-p5=criarProduto empresa=${eid3} nome="Paracetamol " valor=2.40  categoria="medicamento"
+p5=criarProduto empresa=${eid3} nome="Paracetamol" valor=2.40  categoria="medicamento"
 p6=criarProduto empresa=${eid3} nome="Agua Oxigenada" valor=5.00  categoria="higiene"
 
 ###################
