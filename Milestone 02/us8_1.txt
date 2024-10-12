@@ -69,14 +69,14 @@ empresa2=criarEmpresa tipoEmpresa="mercado" dono=${id2} nome="Mercado" endereco=
 empresa3=criarEmpresa tipoEmpresa="farmacia" dono=${id2} nome="Farmacia" endereco="Rua Segura N 123" aberto24Horas=true numeroFuncionarios=2
 
 # criando os produtos.
-p1=criarProduto empresa=${eid1} nome="Pastel" valor=1.40 categoria="alimento"
-p2=criarProduto empresa=${eid1} nome="Refrigerante" valor=3.00 categoria="bebida"
+p1=criarProduto empresa=${empresa1} nome="Pastel" valor=1.40 categoria="alimento"
+p2=criarProduto empresa=${empresa1} nome="Refrigerante" valor=3.00 categoria="bebida"
 
-p3=criarProduto empresa=${eid2} nome="Refrigerante" valor=2.40 categoria="bebida"
-p4=criarProduto empresa=${eid2} nome="Sabão" valor=1.25  categoria="limpeza"
+p3=criarProduto empresa=${empresa2} nome="Refrigerante" valor=2.40 categoria="bebida"
+p4=criarProduto empresa=${empresa2} nome="Sabão" valor=1.25  categoria="limpeza"
 
-p5=criarProduto empresa=${eid3} nome="Paracetamol" valor=2.40 categoria="medicamento"
-p6=criarProduto empresa=${eid3} nome="Agua Oxigenada" valor=5.00 categoria="higiene"
+p5=criarProduto empresa=${empresa3} nome="Paracetamol" valor=2.40 categoria="medicamento"
+p6=criarProduto empresa=${empresa3} nome="Agua Oxigenada" valor=5.00 categoria="higiene"
 
 ###################
 # testes de todas as combinações importantes para o comando liberarPedido.
