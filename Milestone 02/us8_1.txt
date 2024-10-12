@@ -174,11 +174,11 @@ expectError "Pedido nao esta pronto para entrega" criarEntrega pedido=${pe5} ent
 fecharPedido numero=${pe5}
 liberarPedido numero=${pe5}
 
-en1=criarEntrega pedido=${pe5} entregador=${id3} destino=
+en1=criarEntrega pedido=${pe4} entregador=${id3} destino=
 
-expect "entregando" getPedidos pedido=${pe3} atributo="estado"
+expect "pronto" getPedidos pedido=${pe4} atributo="estado"
 
-expect ${pe5} obterPedido entregador=${id3}
+expect ${pe4} obterPedido entregador=${id3}
 expect ${pe1} obterPedido entregador=${id4}
 
 expectError "Entregador ainda em entrega" criarEntrega pedido=${pe4} entregador=${id3} destino=
@@ -195,7 +195,7 @@ expectError "Atributo nao existe" getEntrega id=${en1} atributo="local"
 
 expect "Carlos" getEntrega id=${en1} atributo="cliente"
 expect "Farmacia" getEntrega id=${en1} atributo="empresa"
-expect ${pe5} getEntrega id=${en1} atributo="pedido"
+expect ${pe4} getEntrega id=${en1} atributo="pedido"
 expect "Rodrigo"  getEntrega id=${en1} atributo="entregador"
 expect "Rua Exemplo N 123"  getEntrega id=${en1} atributo="destino"
 expect "{[Paracetamol]}"  getEntrega id=${en1} atributo="produtos"
@@ -213,7 +213,7 @@ expect "{[Pastel, Refrigerante]}" getEntrega id=${en2} atributo="produtos"
 ###################
 
 expect ${en2} getIdEntrega pedido=${pe1}
-expect ${en1} getIdEntrega pedido=${pe3}
+expect ${en1} getIdEntrega pedido=${pe4}
 expectError "Nao existe entrega com esse id" getIdEntrega pedido=${pe2}
 
 ###################
@@ -223,7 +223,7 @@ expectError "Nao existe entrega com esse id" getIdEntrega pedido=${pe2}
 expectError "Nao existe nada para ser entregue com esse id" entregar entrega=9999
 
 entregar entrega=${en1}
-expect "entregue" getPedidos pedido=${pe3} atributo="estado"
+expect "entregue" getPedidos pedido=${pe4} atributo="estado"
 
 cadastrarEntregador empresa=${empresa2} entregador=${id5}
 expectError "Nao existe pedido para entrega" obterPedido entregador=${id5}
