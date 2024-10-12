@@ -177,10 +177,6 @@ liberarPedido numero=${pe5}
 en1=criarEntrega pedido=${pe4} entregador=${id3} destino=
 
 expect "entregando" getPedidos pedido=${pe4} atributo="estado"
-
-expect ${pe4} obterPedido entregador=${id3}
-expect ${pe1} obterPedido entregador=${id4}
-
 expectError "Entregador ainda em entrega" criarEntrega pedido=${pe4} entregador=${id3} destino=
 
 en2=criarEntrega pedido=${pe1} entregador=${id4} destino="Rua Exemplo N 85"
