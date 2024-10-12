@@ -129,10 +129,10 @@ expect ${pe1} obterPedido entregador=${id4}
 
 # Um novo pedido fica para depois, pedidos mais velhos inicialmente tem preferencia.
 pe3=criarPedido cliente=${id1} empresa=${empresa1}
-adicionarProduto numero=${pe2} produto=${p1}
+adicionarProduto numero=${pe3} produto=${p1}
 
-fecharPedido numero=${pe2}
-liberarPedido numero=${pe2}
+fecharPedido numero=${pe3}
+liberarPedido numero=${pe3}
 
 expect ${pe1} obterPedido entregador=${id3}
 expect ${pe1} obterPedido entregador=${id4}
